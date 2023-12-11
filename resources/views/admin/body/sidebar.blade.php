@@ -20,10 +20,10 @@
     </li>
     
     <!-- Nav Item - Ambulance Collapse Menu -->
-    <li class="{{'produk/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="#">
+    <li class="{{'report/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('report')}}">
             <i class="fas fa-solid fa-spa"></i>
-            <span>Produk</span></a>
+            <span>Report</span></a>
     </li>
     
     <!-- Divider -->

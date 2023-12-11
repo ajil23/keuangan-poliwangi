@@ -25,4 +25,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.index');
+
+    Route::get('report', function (){
+        return view('backend.report.view_report');
+    })->name('report');
 });
+

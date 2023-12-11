@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>&copy; Deowangi. All rigths reserved</span>
+            <span>&copy; Poliwangi. All rigths reserved</span>
         </div>
     </div>
 </footer>
