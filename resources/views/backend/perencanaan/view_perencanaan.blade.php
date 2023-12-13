@@ -46,12 +46,8 @@
                              <td>Bulan</td>
                              <td>TRPL</td>
                              <td colspan="2">
-                                <a href="#">
-                                    <button class="btn btn-warning btn-sm">Edit</button>
-                                </a>
-                                <a href="#">
-                                <button class="btn btn-danger btn-sm">Hapus</button>
-                                </a>
+                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                              </td>
                          </tr>
                      </tbody>

@@ -38,12 +38,8 @@
                              <td>42.000</td>
                              <td>doc</td>
                              <td colspan="2">
-                                <a href="#">
-                                    <button class="btn btn-warning">Edit</button>
-                                </a>
-                                <a href="#">
-                                <button class="btn btn-danger">Hapus</button>
-                                </a>
+                                <a href="#" class="btn btn-warning">Edit</a>
+                                <a href="#" class="btn btn-danger">Hapus</a>
                              </td>
                          </tr>
                      </tbody>
