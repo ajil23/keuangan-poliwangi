@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PelaksanaanController;
+use App\Http\Controllers\PerencanaanController;
+use App\Http\Controllers\ReportController;
+use App\Models\Perencanaan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +29,27 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.index');
-
-    Route::get('report', function (){
-        return view('backend.report.view_report');
-    })->name('report');
 });
 
+Route::group(['prefix' => 'perencanaan', 'middleware' => [
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified', ]], function() {
+    Route::get('view', [PerencanaanController::class, 'index'])->name('perencanaan.view');
+    Route::get('add', [PerencanaanController::class, 'add'])->name('perencanaan.add');
+});
+
+Route::group(['prefix' => 'pelaksanaan', 'middleware' => [
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified', ]], function() {
+    Route::get('view', [PelaksanaanController::class, 'index'])->name('pelaksanaan.view');
+    Route::get('add', [PelaksanaanController::class, 'add'])->name('pelaksanaan.add');
+});
+
+Route::group(['prefix' => 'report', 'middleware' => [
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified', ]], function() {
+    Route::get('view', [ReportController::class, 'index'])->name('report.view');
+});
