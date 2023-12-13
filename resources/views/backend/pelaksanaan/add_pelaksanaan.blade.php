@@ -12,7 +12,7 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4">
          <div class="card-header py-3">
-             <h6 class="m-0 font-weight-bold text-primary">Tambah Pelaksanaan</h6>
+             <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pelaksanaan</h6>
          </div>
          <div class="card-body">
             <form>
@@ -30,9 +30,9 @@
                         <label for="kegiatan">Progres</label>
                         <select id="inputSumberDana" class="form-control">
                           <option selected>Pilih Progres</option>
-                          <option>Selesai Pembayaran</option>
-                          <option>Selesai Pembayaran Sebagian</option>
-                          <option>Kontrak</option>
+                          <option value="selesai pembayaran">Selesai Pembayaran</option>
+                          <option value="selesai pembayaran sebagian">Selesai Pembayaran Sebagian</option>
+                          <option value="kontrak">Kontrak</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
