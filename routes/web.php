@@ -49,6 +49,10 @@ Route::group(['prefix' => 'pelaksanaan', 'middleware' => [
     'verified', ]], function() {
     Route::get('view', [PelaksanaanController::class, 'index'])->name('pelaksanaan.view');
     Route::get('add', [PelaksanaanController::class, 'add'])->name('pelaksanaan.add');
+    Route::post('store', [PelaksanaanController::class, 'store'])->name('pelaksanaan.store');
+    Route::get('edit/{id}', [PelaksanaanController::class, 'edit'])->name('pelaksanaan.edit');
+    Route::post('update/{id}', [PelaksanaanController::class, 'update'])->name('pelaksanaan.update');
+    Route::get('delete/{id}', [PelaksanaanController::class, 'delete'])->name('pelaksanaan.delete');
 });
 
 Route::group(['prefix' => 'report', 'middleware' => [

@@ -31,17 +31,19 @@
                          </tr>
                      </thead>
                      <tbody>
-                         <tr>
-                             <td>1</td>
-                             <td>Langganan Internet</td>
-                             <td>Selesai Pembayaran</td>
-                             <td>42.000</td>
-                             <td>doc</td>
-                             <td colspan="2">
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <a href="#" class="btn btn-danger">Hapus</a>
-                             </td>
-                         </tr>
+                        @foreach ($data as $item => $pelaksanaan)
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$pelaksanaan->perencanaan->kegiatan}}</td>
+                            <td>{{$pelaksanaan->progres}}</td>
+                            <td>{{$pelaksanaan->realisasi}}</td>
+                            <td>file</td>
+                            <td colspan="2">
+                               <a href="{{route('pelaksanaan.edit', $pelaksanaan->id)}}" class="btn btn-warning">Edit</a>
+                               <a href="{{route('pelaksanaan.delete', $pelaksanaan->id)}}" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                        @endforeach
                      </tbody>
                  </table>
              </div>

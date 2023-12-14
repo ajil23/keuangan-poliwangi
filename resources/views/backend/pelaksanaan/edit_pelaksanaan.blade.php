@@ -15,21 +15,18 @@
              <h6 class="m-0 font-weight-bold text-primary">Edit Data Pelaksanaan</h6>
          </div>
          <div class="card-body">
-            <form>
+            <form method="POST" action="{{route('pelaksanaan.update', $editPelaksanaan->id)}}" enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="kegiatan">Kegiatan</label>
-                      <select id="inputSumberDana" class="form-control">
-                        <option selected>Pilih Kegiatan</option>
-                        <option>Langganan Internet</option>
-                        <option>Listrik</option>
-                        <option>Kendaraan</option>
+                      <input type="text" class="form-control" name="kegiatan" value="{{$editPelaksanaan->perencanaan->kegiatan}}" disabled>
                       </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="kegiatan">Progres</label>
-                        <select id="inputSumberDana" class="form-control">
-                          <option selected>Pilih Progres</option>
+                        <select id="inputSumberDana" class="form-control" name="progres">
+                          <option selected>{{$editPelaksanaan->progres}}</option>
                           <option>Selesai Pembayaran</option>
                           <option>Selesai Pembayaran Sebagian</option>
                           <option>Kontrak</option>
@@ -37,11 +34,14 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Pagu">Realisasi</label>
-                        <input type="number" class="form-control" placeholder="Pagu">
+                        <input type="number" class="form-control" placeholder="Pagu" name="realisasi" value="{{$editPelaksanaan->realisasi}}">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="formGroupExampleInput">Upload File Laporan</label>
                         <input type="file" class="form-control" id="laporan">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="hidden" class="form-control" name="userid" value="{{$editPelaksanaan->user_id}}">
                     </div>
                 </div>
                 <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>

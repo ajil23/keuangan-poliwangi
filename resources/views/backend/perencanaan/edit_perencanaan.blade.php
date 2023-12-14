@@ -61,7 +61,7 @@
                         <input type="file" class="form-control" id="rab">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" name="userid" value="{{$editPerencanaan->user_id}}">
+                        <input type="hidden" class="form-control" name="userid" value="{{$editPerencanaan->user_id}}">
                     </div>
                 </div>
                 <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>

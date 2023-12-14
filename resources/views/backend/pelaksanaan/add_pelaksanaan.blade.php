@@ -15,21 +15,22 @@
              <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pelaksanaan</h6>
          </div>
          <div class="card-body">
-            <form>
+            <form method="POST" action="{{route('pelaksanaan.store')}}" enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="kegiatan">Kegiatan</label>
-                      <select id="inputSumberDana" class="form-control">
+                      <select id="inputSumberDana" class="form-control" name="kegiatan">
                         {{-- option kegiatan sesuai dengan kegiatan di perencanaan --}}
                         <option selected>Pilih Kegiatan</option>
-                        <option>Langganan Internet</option>
-                        <option>Listrik</option>
-                        <option>Kendaraan</option>
+                        @foreach ($perencanaan as $item)
+                            <option value="{{ $item->id }}">{{ $item->kegiatan }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="kegiatan">Progres</label>
-                        <select id="inputSumberDana" class="form-control">
+                        <select id="inputSumberDana" class="form-control" name="progres">
                           <option selected>Pilih Progres</option>
                           <option value="selesai pembayaran">Selesai Pembayaran</option>
                           <option value="selesai pembayaran sebagian">Selesai Pembayaran Sebagian</option>
@@ -38,11 +39,11 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Pagu">Realisasi</label>
-                        <input type="number" class="form-control" placeholder="Pagu">
+                        <input type="number" class="form-control" placeholder="Realisasi" name="realisasi">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="formGroupExampleInput">Upload File Laporan</label>
-                        <input type="file" class="form-control" id="laporan">
+                        <input type="file" class="form-control" id="laporan" name="laporan">
                     </div>
                 </div>
                 <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>
