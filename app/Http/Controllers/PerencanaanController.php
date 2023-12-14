@@ -20,13 +20,14 @@ class PerencanaanController extends Controller
     }
 
     public function add(){
-        if(Auth::user()->id=='1'){
-            $data = Perencanaan::all();
-            echo '<script>alert("Maaf, anda tidak memiliki akses untuk menambahkan data")</script>';
-            return view('backend.perencanaan.view_perencanaan', ['data' => $data]);
-        } else {
-            return view('backend.perencanaan.add_perencanaan'); 
-        }
+        return view('backend.perencanaan.add_perencanaan'); 
+        // if(Auth::user()->id=='1'){
+        //     $data = Perencanaan::all();
+        //     echo '<script>alert("Maaf, anda tidak memiliki akses untuk menambahkan data")</script>';
+        //     return view('backend.perencanaan.view_perencanaan', ['data' => $data]);
+        // } else {
+        //     return view('backend.perencanaan.add_perencanaan'); 
+        // }
     }
 
     public function store(Request $request){
