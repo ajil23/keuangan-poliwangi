@@ -15,15 +15,16 @@
              <h6 class="m-0 font-weight-bold text-primary">Tambah Data Perencanaan</h6>
          </div>
          <div class="card-body">
-            <form>
+            <form method="POST" action="{{route('perencanaan.store')}}" enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="kegiatan">Kegiatan</label>
-                      <input type="text" class="form-control" placeholder="Kegiatan">
+                      <input type="text" name="kegiatan" class="form-control" placeholder="Kegiatan">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputPassword4">Sumber Dana</label>
-                      <select id="inputSumberDana" class="form-control">
+                      <select id="inputSumberDana" class="form-control" name="sumberDana">
                         <option selected>Pilih Sumber Dana</option>
                         <option value="BUPN">BUPN</option>
                         <option value="PNBP">PNBP</option>
@@ -32,33 +33,34 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="tanggalMulai">Tanggal Mulai</label>
-                        <input type="date" class="form-control">
+                        <input type="date" name="mulai" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="tanggalAkhir">Tanggal Akhir</label>
-                        <input type="date" class="form-control">
+                        <input type="date" name="akhir" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Pagu">Pagu</label>
-                        <input type="number" class="form-control" placeholder="Pagu">
+                        <input type="number" name="pagu" class="form-control" placeholder="Pagu">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="RencanaPenarikan">Rencana Penarikan</label>
-                        <input type="text" class="form-control" placeholder="Rencana Penarikan">
+                        <input type="text" name="penarikan" class="form-control" placeholder="Rencana Penarikan">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="RencanaPenarikan">Prodi</label>
-                        <select id="inputProdi" class="form-control">
+                        <select id="inputProdi" name="prodi" class="form-control">
                             <option selected>Pilih Prodi</option>
-                            <option value="Teknik Sipil">Teknik Sipil</option>
-                            <option value="Agribisnis">Agribisnis</option>
-                            <option value="Manajemen Bisnis Pariwisata">Manajemen Bisnis Pariwisata</option>
-                            <option value="Teknik Manufaktur Kapal">Teknik Manufaktur Kapal</option>
-                            <option value="Teknologi Pengolahan Hasil Ternak">Teknologi Pengolahan Hasil Ternak</option>
-                            <option value="Teknologi Rekayasa Manufaktur">Teknologi Rekayasa Manufaktur</option>
-                            <option value="Teknologi Rekayasa Perangkat Lunak">Teknologi Rekayasa Perangkat Lunak</option>
-                            <option value="Teknologi Rekayasa Komputer">Teknologi Rekayasa Komputer</option>
-                            <option value="Bisnis Digital">Bisnis Digital</option>
+                            <option value="TS">Teknik Sipil</option>
+                            <option value="TRKJJ">Teknologi Rekayasa Konstruksi Jalan & Jembatan</option>
+                            <option value="AGB">Agribisnis</option>
+                            <option value="MBP">Manajemen Bisnis Pariwisata</option>
+                            <option value="TMK">Teknik Manufaktur Kapal</option>
+                            <option value="TPHT">Teknologi Pengolahan Hasil Ternak</option>
+                            <option value="TRM">Teknologi Rekayasa Manufaktur</option>
+                            <option value="TRPL">Teknologi Rekayasa Perangkat Lunak</option>
+                            <option value="TRK">Teknologi Rekayasa Komputer</option>
+                            <option value="BSD">Bisnis Digital</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">

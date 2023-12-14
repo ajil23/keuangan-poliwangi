@@ -20,6 +20,7 @@
                     <div class="form-group col-md-6">
                       <label for="kegiatan">Kegiatan</label>
                       <select id="inputSumberDana" class="form-control">
+                        {{-- option kegiatan sesuai dengan kegiatan di perencanaan --}}
                         <option selected>Pilih Kegiatan</option>
                         <option>Langganan Internet</option>
                         <option>Listrik</option>
