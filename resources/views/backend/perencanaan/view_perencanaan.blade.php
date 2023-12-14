@@ -35,21 +35,23 @@
                          </tr>
                      </thead>
                      <tbody>
-                         <tr>
-                             <td>1</td>
-                             <td>Langganan Internet</td>
-                             <td>BOPTN</td>
-                             <td>2011/04/25</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>file</td>
-                             <td>Bulan</td>
-                             <td>TRPL</td>
-                             <td colspan="2">
-                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                             </td>
-                         </tr>
+                        @foreach ($data as $item => $perencanaan)
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$perencanaan->kegiatan}}</td>
+                            <td>{{$perencanaan->sumberDana}}</td>
+                            <td>{{$perencanaan->mulai}}</td>
+                            <td>{{$perencanaan->akhir}}</td>
+                            <td>{{$perencanaan->pagu}}</td>
+                            <td>file</td>
+                            <td>{{$perencanaan->penarikan}}</td>
+                            <td>{{$perencanaan->prodi}}</td>
+                            <td colspan="2">
+                               <a href="{{route('perencanaan.edit', $perencanaan->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                               <a href="{{route('perencanaan.delete', $perencanaan->id)}}" class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+                        </tr>
+                        @endforeach
                      </tbody>
                  </table>
              </div>
