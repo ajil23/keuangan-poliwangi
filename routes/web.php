@@ -5,6 +5,7 @@ use App\Http\Controllers\PerencanaanController;
 use App\Http\Controllers\ReportController;
 use App\Models\Perencanaan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::middleware([
@@ -27,7 +28,11 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.index');
+        if(Auth::user()->id=='1'){
+            return view('admin.index');
+        } else {
+            return view('admin.jurusan');
+        }
     })->name('admin.index');
 });
 
