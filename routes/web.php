@@ -46,6 +46,7 @@ Route::group(['prefix' => 'perencanaan', 'middleware' => [
     Route::get('edit/{id}', [PerencanaanController::class, 'edit'])->name('perencanaan.edit');
     Route::post('update/{id}', [PerencanaanController::class, 'update'])->name('perencanaan.update');
     Route::get('delete/{id}', [PerencanaanController::class, 'delete'])->name('perencanaan.delete');
+    Route::get('view_rab/{id}', [PerencanaanController::class, 'view_rab'])->name('perencanaan.view_rab');
 });
 
 Route::group(['prefix' => 'pelaksanaan', 'middleware' => [
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'pelaksanaan', 'middleware' => [
     Route::get('edit/{id}', [PelaksanaanController::class, 'edit'])->name('pelaksanaan.edit');
     Route::post('update/{id}', [PelaksanaanController::class, 'update'])->name('pelaksanaan.update');
     Route::get('delete/{id}', [PelaksanaanController::class, 'delete'])->name('pelaksanaan.delete');
+    Route::get('view_laporan/{id}', [PelaksanaanController::class, 'view_laporan'])->name('pelaksanaan.view_laporan');
 });
 
 Route::group(['prefix' => 'report', 'middleware' => [

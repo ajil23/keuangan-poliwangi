@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="formGroupExampleInput">Upload File Rab</label>
-                        <input type="file" class="form-control" id="rab">
+                        <input type="file" name="rab" class="form-control" id="rab">
                     </div>
                 </div>
                 <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>

@@ -37,7 +37,7 @@
                             <td>{{$pelaksanaan->perencanaan->kegiatan}}</td>
                             <td>{{$pelaksanaan->progres}}</td>
                             <td>{{$pelaksanaan->realisasi}}</td>
-                            <td>file</td>
+                            <td><a href="{{route('pelaksanaan.view_laporan',$pelaksanaan->id)}}">file</a></td>
                             <td colspan="2">
                                <a href="{{route('pelaksanaan.edit', $pelaksanaan->id)}}" class="btn btn-warning">Edit</a>
                                <a href="{{route('pelaksanaan.delete', $pelaksanaan->id)}}" class="btn btn-danger">Hapus</a>

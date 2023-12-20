@@ -6,6 +6,7 @@ use App\Models\Pelaksanaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PelaksanaanController extends Controller
 {
@@ -34,11 +35,24 @@ class PelaksanaanController extends Controller
         $pelaksanaanData -> perencanaan_id = $request -> kegiatan;
         $pelaksanaanData -> progres = $request -> progres;
         $pelaksanaanData -> realisasi = $request -> realisasi;
+        if ($request->hasFile('laporan')) {
+            $request->validate([
+                'laporan' => 'required|mimes:pdf|max:2048',
+            ]);
+            $pdfFile = $request->file('laporan');
+            $filelaporan  = $pdfFile->store('laporan', 'public');
+            $pelaksanaanData->laporan = $filelaporan ;
+        }
         // request file rab belum
         $pelaksanaanData->save();
         return redirect()->route('pelaksanaan.view');
     }
-
+    public function view_laporan(string $id)
+    {
+        $data = Pelaksanaan::findOrFail($id); 
+        $pdfPath = public_path('storage/' . $data->laporan);
+        return response()->file($pdfPath);
+    }
     public function edit($id){
         $editPelaksanaan = Pelaksanaan::find($id);
         return view('backend.pelaksanaan.edit_pelaksanaan', compact('editPelaksanaan')); 
@@ -49,6 +63,15 @@ class PelaksanaanController extends Controller
         $pelaksanaanData -> progres = $request -> progres;
         $pelaksanaanData -> realisasi = $request -> realisasi;
         // request file rab belum
+        if ($request->hasFile('laporan')) {
+            $request->validate([
+                'laporan' => 'required|mimes:pdf|max:2048',
+            ]);
+            Storage::delete($pelaksanaanData->laporan);
+            $pdfFile = $request->file('laporan');
+            $filelaporan  = $pdfFile->store('laporan', 'public');
+            $pelaksanaanData->laporan = $filelaporan ;
+        }
         $pelaksanaanData->update();
         return redirect()->route('pelaksanaan.view');
     }

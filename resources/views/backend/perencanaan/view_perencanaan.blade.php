@@ -43,7 +43,7 @@
                             <td>{{$perencanaan->mulai}}</td>
                             <td>{{$perencanaan->akhir}}</td>
                             <td>{{$perencanaan->pagu}}</td>
-                            <td>file</td>
+                            <td><a href="{{route('perencanaan.view_rab',$perencanaan->id)}}">file</a></td>
                             <td>{{$perencanaan->penarikan}}</td>
                             <td>{{$perencanaan->prodi}}</td>
                             <td colspan="2">
