@@ -26,52 +26,19 @@
                              <th>Tanggal</th>
                              <th>Pagu</th>
                              <th>Realisasi</th>
-                             <th>Jumlah</th>
+                             <th>Sisa</th>
                          </tr>
                      </thead>
                      <tbody>
+                         @foreach ($data as $item => $pelaksanaan)
                          <tr>
-                             <td>1</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>42.000</td>
-                             <td>762.000</td>
-                         </tr>
-                         <tr>
-                             <td>2</td>
-                             <td>2011/04/25</td>
-                             <td>50.000</td>
-                             <td>20.000</td>
-                             <td>70.000</td>
-                         </tr>
-                         <tr>
-                             <td>3</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>42.000</td>
-                             <td>762.000</td>
-                         </tr>
-                         <tr>
-                             <td>4</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>42.000</td>
-                             <td>762.000</td>
-                         </tr>
-                         <tr>
-                             <td>5</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>42.000</td>
-                             <td>762.000</td>
-                         </tr>
-                         <tr>
-                             <td>6</td>
-                             <td>2011/04/25</td>
-                             <td>720.000</td>
-                             <td>42.000</td>
-                             <td>762.000</td>
-                         </tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$pelaksanaan->perencanaan->mulai}}</td>
+                            <td>{{$pelaksanaan->perencanaan->pagu}}</td>
+                            <td>{{$pelaksanaan->realisasi}}</td>
+                            <td>{{$pelaksanaan->perencanaan->pagu - $pelaksanaan->realisasi}}</td>
+                        </tr>
+                         @endforeach
                      </tbody>
                  </table>
              </div>
