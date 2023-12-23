@@ -36,7 +36,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$pelaksanaan->perencanaan->kegiatan}}</td>
                             <td>{{$pelaksanaan->progres}}</td>
-                            <td>{{$pelaksanaan->realisasi}}</td>
+                            <td>Rp.{{number_format($pelaksanaan->realisasi)}}</td>
                             <td><a href="{{route('pelaksanaan.view_laporan',$pelaksanaan->id)}}">
                                 <center><i class="fas fa-solid fa-file"></i></center>
                             </a></td>
