@@ -27,8 +27,16 @@
                     </div>
                     <div class="col">
                         <label for="tahun">Tahun</label>
-                        <select class="custom-select" style="width: 400px;" id="tahun" onchange="updateChart()">
+                        <select class="custom-select" id="tahun" onchange="updateChart()">
                             @foreach ($year as $item)
+                                <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="tahun">Bulan</label>
+                        <select class="custom-select" id="bulan" onchange="updateChart()">
+                            @foreach ($bulan as $item)
                                 <option value="{{ $item }}">{{ $item }}</option>
                             @endforeach
                         </select>
@@ -44,7 +52,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pagu</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        <div id="cardPagu" class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -62,7 +70,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Realisasi</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        <div id="cardRealisasi" class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -82,7 +90,7 @@
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                     Sisa</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                <div id="cardSisa" class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -168,10 +176,24 @@
         // Bar Chart Example
         function updateChart() {
             var ctx = document.getElementById("myBarChart");
+            var pagu = document.getElementById("cardPagu");
+            var realisasi = document.getElementById("cardRealisasi");
+            var sisa = document.getElementById("cardSisa");
             var data = <?php echo json_encode($results); ?>;
             var selectedYear = document.getElementById('tahun').value;
             var selectedProdi = document.getElementById('inputProdi').value;
+            var selectedBulan = document.getElementById('bulan').value;
+            var filteredCard = data.filter(item => item.prodi == selectedProdi && item.tahun == selectedYear && item
+                .nama_bulan == selectedBulan);
             var filteredData = data.filter(item => item.prodi == selectedProdi && item.tahun == selectedYear);
+            var dataPagu = filteredCard.map(item => item.pagu);
+            pagu.innerHTML = 'Rp ' + number_format(dataPagu[0]);
+
+            var dataRealisasi = filteredCard.map(item => item.total);
+            realisasi.innerHTML = 'Rp ' + number_format(dataRealisasi[0]);
+
+            var dataSisa = filteredCard.map(item => item.sisa);
+            sisa.innerHTML = 'Rp ' + number_format(dataSisa[0]);
             var myBarChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -216,7 +238,7 @@
                                 padding: 10,
                                 // Include a dollar sign in the ticks
                                 callback: function(value, index, values) {
-                                    return number_format(value);
+                                    return 'Rp. ' + number_format(value);
                                 }
                             },
                             gridLines: {
