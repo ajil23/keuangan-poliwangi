@@ -42,7 +42,7 @@
                             <td>{{$perencanaan->sumberDana}}</td>
                             <td>{{$perencanaan->mulai}}</td>
                             <td>{{$perencanaan->akhir}}</td>
-                            <td>{{$perencanaan->pagu}}</td>
+                            <td>Rp.{{number_format($perencanaan->pagu)}}</td>
                             <td><a href="{{route('perencanaan.view_rab',$perencanaan->id)}}">
                             <center><i class="fas fa-solid fa-file"></i></center>
                             </a></td>

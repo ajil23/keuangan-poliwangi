@@ -39,7 +39,7 @@
                     </div>
                     <div class="col">
                         <label for="tahun">Tahun</label>
-                        <select class="custom-select" style="width: 400px;" id="tahun" onchange="updateChart()">
+                        <select class="form-control" style="width: 400px;" id="tahun" onchange="updateChart()">
                             @foreach ($year as $item)
                                 <option value="{{ $item }}">{{ $item }}</option>
                             @endforeach

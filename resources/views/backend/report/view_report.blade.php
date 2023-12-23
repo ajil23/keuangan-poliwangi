@@ -8,7 +8,7 @@
             <h1 class="h3 mb-2 text-gray-800">Laporan</h1>
         </div>
         <div class="text-end mb-2">
-            <a href="#"><button type="button" class="btn btn-primary">Cetak PDF</button></a>
+            <a href="{{route('report.export')}}" target="_blank"><button type="button" class="btn btn-primary">Cetak PDF</button></a>
         </div>
     </div>
 
@@ -34,9 +34,9 @@
                          <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$pelaksanaan->perencanaan->mulai}}</td>
-                            <td>{{$pelaksanaan->perencanaan->pagu}}</td>
-                            <td>{{$pelaksanaan->realisasi}}</td>
-                            <td>{{$pelaksanaan->perencanaan->pagu - $pelaksanaan->realisasi}}</td>
+                            <td>Rp.{{number_format($pelaksanaan->perencanaan->pagu)}}</td>
+                            <td>Rp.{{number_format($pelaksanaan->realisasi)}}</td>
+                            <td>Rp.{{number_format($pelaksanaan->perencanaan->pagu - $pelaksanaan->realisasi)}}</td>
                         </tr>
                          @endforeach
                      </tbody>
