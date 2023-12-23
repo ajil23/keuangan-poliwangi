@@ -65,4 +65,5 @@ Route::group(['prefix' => 'report', 'middleware' => [
     'verified',
 ]], function () {
     Route::get('view', [ReportController::class, 'index'])->name('report.view');
+    Route::get('export', [ReportController::class, 'export'])->name('report.export');
 });
