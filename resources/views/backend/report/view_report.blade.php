@@ -5,7 +5,7 @@
      <!-- Page Heading -->
      <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Laporan</h1>
+            <h1 class="h3 mb-2 text-gray-800">Report</h1>
         </div>
         <div class="text-end mb-2">
             <a href="{{route('report.export')}}" target="_blank"><button type="button" class="btn btn-primary">Cetak PDF</button></a>
@@ -15,7 +15,7 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4">
          <div class="card-header py-3">
-             <h6 class="m-0 font-weight-bold text-primary">Tabel Laporan</h6>
+             <h6 class="m-0 font-weight-bold text-primary">Tabel Report</h6>
          </div>
          <div class="card-body">
              <div class="table-responsive">
@@ -26,6 +26,7 @@
                              <th>Tanggal</th>
                              <th>Pagu</th>
                              <th>Realisasi</th>
+                             <th>Prodi</th>
                              <th>Sisa</th>
                          </tr>
                      </thead>
@@ -36,6 +37,7 @@
                             <td>{{$pelaksanaan->perencanaan->mulai}}</td>
                             <td>Rp.{{number_format($pelaksanaan->perencanaan->pagu)}}</td>
                             <td>Rp.{{number_format($pelaksanaan->realisasi)}}</td>
+                            <td>{{$pelaksanaan->perencanaan->prodi}}</td>
                             <td>Rp.{{number_format($pelaksanaan->perencanaan->pagu - $pelaksanaan->realisasi)}}</td>
                         </tr>
                          @endforeach

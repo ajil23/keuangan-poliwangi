@@ -20,7 +20,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="kegiatan">Kegiatan</label>
-                      <select id="inputSumberDana" class="form-control" name="kegiatan">
+                      <select id="inputSumberDana" class="form-control" name="kegiatan" required>
                         {{-- option kegiatan sesuai dengan kegiatan di perencanaan --}}
                         <option selected>Pilih Kegiatan</option>
                         @foreach ($perencanaan as $item)
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="kegiatan">Progres</label>
-                        <select id="inputSumberDana" class="form-control" name="progres">
+                        <select id="inputSumberDana" class="form-control" name="progres" required>
                           <option selected>Pilih Progres</option>
                           <option value="selesai pembayaran">Selesai Pembayaran</option>
                           <option value="selesai pembayaran sebagian">Selesai Pembayaran Sebagian</option>
@@ -39,11 +39,11 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Pagu">Realisasi</label>
-                        <input type="number" class="form-control" placeholder="Realisasi" name="realisasi">
+                        <input type="number" class="form-control" placeholder="Realisasi" name="realisasi" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="formGroupExampleInput">Upload File Laporan</label>
-                        <input type="file" class="form-control" id="laporan" name="laporan">
+                        <input type="file" class="form-control" id="laporan" name="laporan" required>
                     </div>
                 </div>
                 <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>

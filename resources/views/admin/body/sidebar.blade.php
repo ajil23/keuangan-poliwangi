@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.index')}}">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-laugh-wink"></i>
+            <img src="{{asset('backend/img/poliwangi.png')}}" alt="" style="height: 45px; width: 45px;">
         </div>
         <div class="sidebar-brand-text mx-3">Poliwangi</div>
     </a>
@@ -35,7 +35,7 @@
     <li class="{{'report/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{route('report.view')}}">
             <i class="fas fa-solid fa-file"></i>
-            <span>Laporan</span></a>
+            <span>Report</span></a>
     </li>
     
     <!-- Divider -->

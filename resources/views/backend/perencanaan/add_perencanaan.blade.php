@@ -19,11 +19,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="kegiatan">Kegiatan</label>
-                            <input type="text" name="kegiatan" class="form-control" placeholder="Kegiatan">
+                            <input type="text" name="kegiatan" class="form-control" placeholder="Kegiatan" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Sumber Dana</label>
-                            <select id="inputSumberDana" class="form-control" name="sumberDana">
+                            <select id="inputSumberDana" class="form-control" name="sumberDana" required>
                                 <option selected>Pilih Sumber Dana</option>
                                 <option value="BUPN">BUPN</option>
                                 <option value="PNBP">PNBP</option>
@@ -32,23 +32,23 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="tanggalMulai">Tanggal Mulai</label>
-                            <input type="date" name="mulai" class="form-control">
+                            <input type="date" name="mulai" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="tanggalAkhir">Tanggal Akhir</label>
-                            <input type="date" name="akhir" class="form-control">
+                            <input type="date" name="akhir" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Pagu">Pagu</label>
-                            <input type="number" name="pagu" class="form-control" placeholder="Pagu">
+                            <input type="number" name="pagu" class="form-control" placeholder="Pagu" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="RencanaPenarikan">Rencana Penarikan</label>
-                            <input type="text" name="penarikan" class="form-control" placeholder="Rencana Penarikan">
+                            <input type="text" name="penarikan" class="form-control" placeholder="Rencana Penarikan" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="RencanaPenarikan">Prodi</label>
-                            <select id="inputProdi" name="prodi" class="form-control">
+                            <select id="inputProdi" name="prodi" class="form-control" required>
                                 <option selected>Pilih Prodi</option>
                                 @if (Auth::user()->id == 2)
                                     <option value="TRPL">Teknologi Rekayasa Perangkat Lunak</option>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="formGroupExampleInput">Upload File Rab</label>
-                            <input type="file" name="rab" class="form-control" id="rab">
+                            <input type="file" name="rab" class="form-control" id="rab" required>
                         </div>
                     </div>
                     <button type="button" onclick="history.back()" class="btn btn-danger">Batal</button>
